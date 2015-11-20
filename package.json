@@ -1,5 +1,5 @@
 {
-  "name": "react-pikaday",
+  "name": "@lendinghome/react-pikaday",
   "version": "0.3.2",
   "description": "A React component wrapper around Pikaday.",
   "main": "lib/Pikaday.js",
