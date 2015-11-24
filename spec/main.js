@@ -1,15 +1,15 @@
 /** @jsx React.DOM */
 
-var React = require('react/addons');
+var React = require('react');
+var TU = require('react-addons-test-utils');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var expect = require('chai').expect;
 
 var Pikaday = require('../src/Pikaday');
 
-var TU = React.addons.TestUtils;
-
 describe('Pikaday', () => {
   it('renders', () => {
-    var component = React.renderComponent(<Pikaday />, document.createElement('div'));
+    var component = TU.renderIntoDocument(<Pikaday />);
     expect(component).to.be.ok;
   });
 
@@ -32,7 +32,7 @@ describe('Pikaday', () => {
         }
       });
 
-      var component = React.renderComponent(<Form />, document.createElement('div'));
+      var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
       var pikaday = component.refs.pikaday._picker;
       pikaday.setDate(new Date(2014, 0, 1));
 
@@ -41,7 +41,7 @@ describe('Pikaday', () => {
 
     it('works with LinkedStateMixin', function() {
       var Form = React.createClass({
-        mixins: [ React.addons.LinkedStateMixin ],
+        mixins: [ LinkedStateMixin ],
 
         getInitialState: function() {
           return { date: null };
@@ -54,7 +54,7 @@ describe('Pikaday', () => {
         }
       });
 
-      var component = React.renderComponent(<Form />, document.createElement('div'));
+      var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
       var pikaday = component.refs.pikaday._picker;
       pikaday.setDate(new Date(2014, 0, 1));
 
@@ -82,7 +82,7 @@ describe('Pikaday', () => {
         }
       });
 
-      var component = React.renderComponent(<Form />, document.createElement('div'));
+      var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
       var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
       expect(input.value).to.be.eql('2014-01-01');
@@ -90,7 +90,7 @@ describe('Pikaday', () => {
 
     it('works with LinkedStateMixin', function() {
       var Form = React.createClass({
-        mixins: [ React.addons.LinkedStateMixin ],
+        mixins: [ LinkedStateMixin ],
 
         getInitialState: function() {
           return { date: new Date(2014, 0, 1) };
@@ -103,7 +103,7 @@ describe('Pikaday', () => {
         }
       });
 
-      var component = React.renderComponent(<Form />, document.createElement('div'));
+      var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
       var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
       expect(input.value).to.be.eql('2014-01-01');
@@ -114,7 +114,7 @@ describe('Pikaday', () => {
   describe('clearing the value', () => {
     it('works with LinkedStateMixin', function () {
       var Form = React.createClass({
-        mixins: [ React.addons.LinkedStateMixin ],
+        mixins: [ LinkedStateMixin ],
 
         getInitialState: function() {
           return { date: new Date(2014, 0, 1) };
@@ -133,7 +133,7 @@ describe('Pikaday', () => {
         }
       });
 
-      var component = React.renderComponent(<Form />, document.createElement('div'));
+      var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
       var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
       expect(input.value).to.be.eql('2014-01-01');
