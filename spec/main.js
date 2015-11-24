@@ -143,4 +143,21 @@ describe('Pikaday', () => {
       expect(input.value).to.be.eql('');
     });
   });
+
+    describe('pikaday options', () => {
+      it('passes options to pikaday plugin', function() {
+        var minDate = new Date(2014, 0, 1);
+        var Form = React.createClass({
+          render: function() {
+            return (
+                <Pikaday ref="pikaday" minDate={minDate}/>
+            );
+          }
+        });
+
+        var component = TU.renderIntoDocument(<Form />);
+
+        expect(component.refs.pikaday._picker._o.minDate).to.eql(minDate);
+      });
+    });
 });

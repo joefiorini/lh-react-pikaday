@@ -1,5 +1,6 @@
 var React = require('react');
 var Pikaday = require('pikaday');
+var update = require('react-addons-update');
 
 var ReactPikaday = React.createClass({
 
@@ -35,11 +36,16 @@ var ReactPikaday = React.createClass({
 
   componentDidMount: function() {
     var el = this.refs.pikaday.getDOMNode();
+    var opts = update({}, { $merge: this.props });
 
-    this._picker = new Pikaday({
-      field: el,
-      onSelect: this.getValueLink(this.props).requestChange
-    });
+    delete opts.value;
+    delete opts.onChange;
+    delete opts.valueLink;
+
+    opts.field = el;
+    opts.onSelect = this.getValueLink(this.props).requestChange;
+
+    this._picker = new Pikaday(opts);
 
     this.setDateIfChanged(this.getValueLink(this.props).value);
   },
