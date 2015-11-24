@@ -12,13 +12,10 @@
     "quotes": [2, "single"],
     "react/jsx-quotes": [1, 'double', 'avoid-escape'],
     "no-underscore-dangle": [0],
-    "comma-dangle": false,
-    "camelcase": false,
-    "dot-notation": false,
+    "comma-dangle": [2, "never"],
+    "camelcase": [2, {"properties": "never"}],
 
     // functionality stuff
-    "new-cap": false,
-    "no-shadow": false,
 
     // react stuff
     "react/jsx-boolean-value": 1,
