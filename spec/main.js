@@ -84,7 +84,7 @@ describe('Pikaday', () => {
 
       var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
-      var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
+      var input = TU.findRenderedDOMComponentWithTag(component, 'input');
       expect(input.value).to.be.eql('2014-01-01');
     });
 
@@ -105,7 +105,7 @@ describe('Pikaday', () => {
 
       var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
-      var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
+      var input = TU.findRenderedDOMComponentWithTag(component, 'input');
       expect(input.value).to.be.eql('2014-01-01');
     });
 
@@ -135,10 +135,10 @@ describe('Pikaday', () => {
 
       var component = TU.renderIntoDocument(<Form />, document.createElement('div'));
 
-      var input = TU.findRenderedDOMComponentWithTag(component, 'input').getDOMNode();
+      var input = TU.findRenderedDOMComponentWithTag(component, 'input');
       expect(input.value).to.be.eql('2014-01-01');
 
-      var clearBtn = component.refs.clearBtn.getDOMNode();
+      var clearBtn = component.refs.clearBtn;
       TU.Simulate.click(clearBtn);
       expect(input.value).to.be.eql('');
     });
