@@ -1,6 +1,6 @@
 {
   "name": "@lendinghome/react-pikaday",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "A React component wrapper around Pikaday.",
   "main": "lib/Pikaday.js",
   "repository": {
