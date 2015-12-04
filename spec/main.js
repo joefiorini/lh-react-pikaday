@@ -150,7 +150,7 @@ describe('Pikaday', () => {
         var Form = React.createClass({
           render: function() {
             return (
-                <Pikaday ref="pikaday" minDate={minDate}/>
+                <Pikaday ref="pikaday" options={{minDate: minDate}}/>
             );
           }
         });

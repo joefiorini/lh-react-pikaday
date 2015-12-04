@@ -36,11 +36,9 @@ var ReactPikaday = React.createClass({
 
   componentDidMount: function() {
     var el = this.refs.pikaday;
-    var opts = update({}, { $merge: this.props });
+    var opts = update({}, { $merge: this.props.options || {} });
 
-    delete opts.value;
-    delete opts.onChange;
-    delete opts.valueLink;
+    delete this.props.options;
 
     opts.field = el;
     opts.onSelect = this.getValueLink(this.props).requestChange;
