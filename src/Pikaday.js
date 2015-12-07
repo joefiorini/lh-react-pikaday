@@ -38,9 +38,6 @@ var ReactPikaday = React.createClass({
     var el = this.refs.pikaday;
     var opts = update({}, { $merge: this.props.options || {} });
 
-    // Don't want to pass options through to the input later on
-    this.props.options = undefined;
-
     opts.field = el;
     opts.onSelect = this.getValueLink(this.props).requestChange;
 
@@ -57,8 +54,18 @@ var ReactPikaday = React.createClass({
   },
 
   render: function() {
+    const propsWithoutValue = {};
+
+    // Want to forward all props on to input component except the value
+    // since pikaday will be in control of the value, not us
+    for (var prop in this.props) {
+      if (this.props.hasOwnProperty(prop) && prop !== 'value') {
+        propsWithoutValue[prop] = this.props[prop];
+      }
+    }
+
     return (
-      <input type="text" ref="pikaday" {...this.props} />
+      <input type="text" ref="pikaday" {...propsWithoutValue} />
     );
   }
 });
