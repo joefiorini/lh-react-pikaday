@@ -38,7 +38,8 @@ var ReactPikaday = React.createClass({
     var el = this.refs.pikaday;
     var opts = update({}, { $merge: this.props.options || {} });
 
-    delete this.props.options;
+    // Don't want to pass options through to the input later on
+    this.props.options = undefined;
 
     opts.field = el;
     opts.onSelect = this.getValueLink(this.props).requestChange;
