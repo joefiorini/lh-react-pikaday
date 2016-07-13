@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "pikaday": "^1.2.0",
-    "react-addons-update": "^0.14.3"
+    "react-addons-update": "^15.2.1"
   },
   "devDependencies": {
     "babel": "^5.5.8",
@@ -27,9 +27,9 @@
     "karma-mocha": "^0.1.9",
     "karma-webpack": "^1.2.2",
     "mocha": "^1.21.4",
-    "react": "^0.14.3",
-    "react-addons-linked-state-mixin": "^0.14.3",
-    "react-addons-test-utils": "^0.14.3",
+    "react": "^15.2.1",
+    "react-addons-linked-state-mixin": "^15.2.1",
+    "react-addons-test-utils": "^15.2.1",
     "style-loader": "^0.8.0",
     "webpack": "^1.4.3",
     "webpack-dev-server": "^1.6.5"
