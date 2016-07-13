@@ -35,7 +35,7 @@
     "webpack-dev-server": "^1.6.5"
   },
   "peerDependencies": {
-    "react": "^0.14"
+    "react": "^15.2"
   },
   "scripts": {
     "test": "scripts/test",
